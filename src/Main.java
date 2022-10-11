@@ -40,5 +40,19 @@ public class Main {
         System.out.println(truck3);
         System.out.println(truck4 + "\n");
 
+        DriverCategoryB alex = new DriverCategoryB("Алексей","B",1,car3);
+        DriverCategoryC sergey = new DriverCategoryC("Сергей","C",5,bus1);
+        DriverCategoryD pavel = new DriverCategoryD("Павел","D",10,truck2);
+
+        printInfo(alex);
+        printInfo(sergey);
+        printInfo(pavel);
+
+    }
+
+    public static void printInfo(Driver driver){
+        System.out.println("водитель " + driver.toString()+
+                " управляет автомобилем " + driver.getCar().toString() +
+                " и будет участвовать в заезде");
     }
 }
