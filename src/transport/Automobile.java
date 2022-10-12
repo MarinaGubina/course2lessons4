@@ -3,6 +3,19 @@ package transport;
 import java.time.LocalTime;
 
 public class Automobile extends Car implements Competing{
+    public enum TypeOfAutomobile{
+        SEDAN("Седан"), HATCHBACK("Хетчбек"), COUPE("Купе"),
+        UNIVERSAL("Универсал"),SUV("Внедорожник"),CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),VAN("Фургон"), MINIVAN("Минивэн");
+        private final String type;
+        TypeOfAutomobile(String type) {
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
     public Automobile(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
