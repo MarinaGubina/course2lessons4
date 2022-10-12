@@ -20,8 +20,21 @@ public class Bus extends Car implements Competing{
             return capacity;
         }
     }
-    public Bus(String brand, String model, double engineVolume) {
+    private CapacityBus capacityBus;
+    public Bus(String brand,
+               String model,
+               double engineVolume,
+               CapacityBus capacityBus) {
         super(brand, model, engineVolume);
+        this.capacityBus = capacityBus;
+    }
+
+    public CapacityBus getCapacityBus() {
+        return capacityBus;
+    }
+
+    public void setCapacityBus(CapacityBus capacityBus) {
+        this.capacityBus = capacityBus;
     }
 
     @Override
@@ -37,6 +50,16 @@ public class Bus extends Car implements Competing{
     @Override
     public LocalTime bestTime() {
         return LocalTime.of(0,20,3);
+    }
+
+    @Override
+    public void printType() {
+        if(capacityBus == null){
+            System.out.println("Данных не достаточно");
+        }
+        else {
+            System.out.println("Вместимость автобуса: " + capacityBus +" : "+ capacityBus.getCapacity());
+        }
     }
 
     @Override

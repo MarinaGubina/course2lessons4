@@ -4,7 +4,6 @@ public abstract class Car {
     private String brand;
     private String model;
     private double engineVolume;
-
     public Car(String brand, String model, double engineVolume) {
         if(isNullOrEmpty(brand)){
             this.brand = "default";}
@@ -21,6 +20,9 @@ public abstract class Car {
         else{
             this.engineVolume = engineVolume;}
     }
+
+    public abstract void printType();
+
     public abstract void startMovement();
     public abstract void finishMovement();
 

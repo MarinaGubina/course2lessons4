@@ -4,9 +4,16 @@ import java.time.LocalTime;
 
 public class Automobile extends Car implements Competing{
     public enum TypeOfAutomobile{
-        SEDAN("Седан"), HATCHBACK("Хетчбек"), COUPE("Купе"),
-        UNIVERSAL("Универсал"),SUV("Внедорожник"),CROSSOVER("Кроссовер"),
-        PICKUP("Пикап"),VAN("Фургон"), MINIVAN("Минивэн");
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        UNIVERSAL("Универсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
         private final String type;
         TypeOfAutomobile(String type) {
             this.type = type;
@@ -16,8 +23,19 @@ public class Automobile extends Car implements Competing{
             return type;
         }
     }
-    public Automobile(String brand, String model, double engineVolume) {
+    private TypeOfAutomobile typeOfAutomobile;
+    public Automobile(String brand, String model, double engineVolume,TypeOfAutomobile typeOfAutomobile) {
+
         super(brand, model, engineVolume);
+        this.typeOfAutomobile = typeOfAutomobile;
+    }
+
+    public TypeOfAutomobile getTypeOfAutomobile() {
+        return typeOfAutomobile;
+    }
+
+    public void setTypeOfAutomobile(TypeOfAutomobile typeOfAutomobile) {
+        this.typeOfAutomobile = typeOfAutomobile;
     }
 
     @Override
@@ -33,6 +51,16 @@ public class Automobile extends Car implements Competing{
     @Override
     public LocalTime bestTime() {
         return LocalTime.of(0,12,4);
+    }
+
+    @Override
+    public void printType() {
+        if(typeOfAutomobile == null){
+            System.out.println("Данных не достаточно");
+        }
+        else {
+            System.out.println("Тип авто: " + typeOfAutomobile);
+        }
     }
 
     @Override

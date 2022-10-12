@@ -17,8 +17,21 @@ public class Truck extends Car implements Competing{
             return capacity;
         }
     }
-    public Truck(String brand, String model, double engineVolume) {
+    private CapacityTruck capacityTruck;
+    public Truck(String brand,
+                 String model,
+                 double engineVolume,
+                 CapacityTruck capacityTruck) {
         super(brand, model, engineVolume);
+        this.capacityTruck = capacityTruck;
+    }
+
+    public CapacityTruck getCapacityTruck() {
+        return capacityTruck;
+    }
+
+    public void setCapacityTruck(CapacityTruck capacityTruck) {
+        this.capacityTruck = capacityTruck;
     }
 
     @Override
@@ -34,6 +47,16 @@ public class Truck extends Car implements Competing{
     @Override
     public LocalTime bestTime() {
         return LocalTime.of(0,18,45);
+    }
+
+    @Override
+    public void printType() {
+        if(capacityTruck == null){
+            System.out.println("Данных не достаточно");
+        }
+        else {
+            System.out.println("Грузоподъемность: " + capacityTruck + " : " + capacityTruck.getCapacity());
+        }
     }
 
     @Override
